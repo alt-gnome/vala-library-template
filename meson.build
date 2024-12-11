@@ -1,5 +1,5 @@
 project(
-  'lib<<LIB-NAME>>',
+  '<<LIB-NAME>>',
   'vala',
   version: '0.1.0',
   meson_version: '>= 1.0.0',
@@ -8,15 +8,16 @@ project(
 
 api_version = '0.1'
 
-lib_name = '<<LIB-NAME>>'
+lib_name = 'lib' + meson.project_name ()
 gir_name = '<<GIR-NAME>>'
 
 versioned_name = meson.project_name() + '-' + api_version
+versioned_lib_name = lib_name + '-' + api_version
 versioned_gir_name = gir_name + '-' + api_version
 
-deps_name = versioned_name + '.deps'
-header_name = meson.project_name() + '.h'
-vapi_name = versioned_name + '.vapi'
+deps_name = versioned_lib_name + '.deps'
+header_name = versioned_name + '.h'
+vapi_name = versioned_lib_name + '.vapi'
 gir_name = versioned_gir_name + '.gir'
 typelib_name = versioned_gir_name + '.typelib'
 
