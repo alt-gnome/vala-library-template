@@ -62,7 +62,7 @@ pkgconfig.generate(
   lib,
   name: versioned_lib_name,
   requires: pkgconfig_requires,
-  subdirs: [ versioned_name ],
+  subdirs: [ versioned_lib_name ],
   description: 'No description',
   version: meson.project_version(),
   url: lib_url,

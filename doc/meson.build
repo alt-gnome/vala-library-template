@@ -5,14 +5,14 @@ foreach deps_pkg : deps_pkgs
   pkgs += '--pkg=' + deps_pkg
 endforeach
 
-valadoc_vala_dir = versioned_name + '-vala'
+valadoc_vala_dir = versioned_lib_name + '-vala'
 custom_target(
   'valadoc',
   command: [ valadoc ] + pkgs +
   [
     sources,
     '--target-glib=' + glib_min_version,
-    '--package-name=' + versioned_name,
+    '--package-name=' + versioned_lib_name,
     '--package-version=' + meson.project_version(),
     '--verbose',
     '--force',
@@ -30,15 +30,15 @@ custom_target(
   [
     sources,
     '--target-glib=' + glib_min_version,
-    '--package-name=' + versioned_name,
+    '--package-name=' + versioned_lib_name,
     '--package-version=' + meson.project_version(),
     '--verbose',
     '--force',
-    '-o', meson.current_build_dir() / versioned_name,
+    '-o', meson.current_build_dir() / versioned_lib_name,
     '--doclet-arg=lib/' + header_name,
     '--doclet=gtkdoc',
   ],
   build_by_default: true,
-  output: versioned_name,
+  output: versioned_lib_name,
   depends: lib,
 )

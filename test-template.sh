@@ -4,5 +4,5 @@ rsync -av --progress ./ ./test-dir/ --exclude .git --exclude test.sh --exclude _
 cd test-dir
 echo '*' >> .gitignore
 sh setup-space.sh my-awesome-lib
-meson setup --wipe _build -Dprefix=/usr
+meson setup --wipe _build -Dprefix=/usr -Ddocumentation=true
 meson compile -C _build
